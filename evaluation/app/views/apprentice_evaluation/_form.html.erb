@@ -1,0 +1,15 @@
+<%= form_for @apprentice_evaluation do |f| %>
+
+   <%= f.text_field :fullname, :placeholder => "Full Name" %>
+<br>
+   <%= f.text_field :email, :placeholder => "Email"%>
+<br>
+   <%= f.text_field :projectrepo, :placeholder => "Project Repo" %>
+<br>
+   <%= f.text_field :projecturl, :placeholder => "Project Url" %>
+<br>
+  <%= select_tag :thc, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+<br>
+  <%= f.submit %>
+
+<% end %>
