@@ -1,0 +1,65 @@
+<%= form_for @apprentice_evaluation do |f| %>
+
+   <%= f.text_field :fullname, :placeholder => "Full Name" %>
+<br>
+   <%= f.text_field :email, :placeholder => "Email"%>
+<br>
+   <%= f.text_field :projectrepo, :placeholder => "Project Repo" %>
+<br>
+   <%= f.text_field :projecturl, :placeholder => "Project Url" %>
+<br>
+
+  <%= f.fields_for :skill do |s| %>
+    <%= s.select :skills, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+
+    <%= f.label  "Using Best Practices For OOP" %>
+    <%= s.select :oop_practices, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+
+      <%= f.label  "Modular Development" %>
+      <%= s.select :modular_dev, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Full-stack Workflow Understanding" %>
+      <%= s.select :fullstack_understanding, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Testing" %>
+      <%= s.select :testing, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Database Knowledge" %>
+      <%= s.select :db_knowledge, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Debugging" %>
+      <%= s.select :debugging, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Problem Solving Skills" %>
+      <%= s.select :problem_solving, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Javascript" %>
+      <%= s.select :javascript, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "HTML" %>
+      <%= s.select :html, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "CSS" %>
+      <%= s.select :css, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Working on a Team" %>
+      <%= s.select :teamwork, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Self Motivation" %>
+      <%= s.select :self_motivation, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Communication Skills" %>
+      <%= s.select :communication_skills, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "My Energy Level" %>
+      <%= s.select :energy, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+      <%= f.label  "Intelligence / Aptitude" %>
+      <%= s.select :aptitude, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    <br>
+  <% end %>
+
+  <%= f.submit %>
+
+<% end %>
