@@ -9,9 +9,7 @@
    <%= f.text_field :projecturl, :placeholder => "Project Url" %>
 <br>
 
-  <%= f.fields_for :skill do |s| %>
-    <%= s.select :skills, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-
+  <%= f.fields_for :skills_attributes do |s| %>
     <%= f.label  "Using Best Practices For OOP" %>
     <%= s.select :oop_practices, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
     <br>
