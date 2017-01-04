@@ -1,63 +1,160 @@
-<%= form_for @apprentice_evaluation do |f| %>
+<div class="container">
+  <%= form_for @apprentice_evaluation do |f| %>
+    <div class="row">
+        <%= f.text_field :fullname, :placeholder => "Full Name", :class => 'apprentice-info' %>
+    </div>
+    <div class="row">
+       <%= f.text_field :email, :placeholder => "Email", :class => 'apprentice-info' %>
+    </div>
+    <div class="row">
+       <%= f.text_field :projectrepo, :placeholder => "Project Repo", :class => 'apprentice-info' %>
+    </div>
+    <div class="row">
+       <%= f.text_field :projecturl, :placeholder => "Project Url", :class => 'apprentice-info' %>
+    </div>
 
-   <%= f.text_field :fullname, :placeholder => "Full Name" %>
-<br>
-   <%= f.text_field :email, :placeholder => "Email"%>
-<br>
-   <%= f.text_field :projectrepo, :placeholder => "Project Repo" %>
-<br>
-   <%= f.text_field :projecturl, :placeholder => "Project Url" %>
-<br>
 
-  <%= f.fields_for :skills_attributes do |s| %>
-    <%= f.label  "Using Best Practices For OOP" %>
-    <%= s.select :oop_practices, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
+<!-- skills list -->
+      <%= f.fields_for :skills_attributes do |s| %>
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Using Best Practices For OOP", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :oop_practices, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
 
-      <%= f.label  "Modular Development" %>
-      <%= s.select :modular_dev, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Full-stack Workflow Understanding" %>
-      <%= s.select :fullstack_understanding, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Testing" %>
-      <%= s.select :testing, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Database Knowledge" %>
-      <%= s.select :db_knowledge, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Debugging" %>
-      <%= s.select :debugging, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Problem Solving Skills" %>
-      <%= s.select :problem_solving, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Javascript" %>
-      <%= s.select :javascript, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "HTML" %>
-      <%= s.select :html, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "CSS" %>
-      <%= s.select :css, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Working on a Team" %>
-      <%= s.select :teamwork, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Self Motivation" %>
-      <%= s.select :self_motivation, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Communication Skills" %>
-      <%= s.select :communication_skills, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "My Energy Level" %>
-      <%= s.select :energy, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-      <%= f.label  "Intelligence / Aptitude" %>
-      <%= s.select :aptitude, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
-    <br>
-  <% end %>
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Modular Development", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+          <%= s.select :modular_dev, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
 
-  <%= f.submit %>
+    <div class="row skills">
+      <span class="col-xs-10">
+          <%= f.label  "Full-stack Workflow Understanding", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+          <%= s.select :fullstack_understanding, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
 
-<% end %>
+    <div class="row skills">
+      <span class="col-xs-10">
+          <%= f.label  "Testing", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+          <%= s.select :testing, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+        </span>
+      </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Database Knowledge", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :db_knowledge, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Debugging", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :debugging, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Problem Solving Skills", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :problem_solving, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Javascript", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :javascript, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "HTML", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :html, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "CSS", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :css, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+      <%= f.label  "Working on a Team", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :teamwork, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+    </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Self Motivation", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :self_motivation, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Communication Skills", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :communication_skills, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "My Energy Level", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :energy, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+    <div class="row skills">
+      <span class="col-xs-10">
+        <%= f.label  "Intelligence / Aptitude", :class => "skills-info" %>
+      </span>
+      <span class="col-xs-2 skills-value">
+        <%= s.select :aptitude, options_for_select((1..4).step(1).map{|s| ["#{s}", s]})%>
+      </span>
+    </div>
+
+      <% end %>
+
+      <%= f.submit 'Submit', :class => 'submit-info' %>
+
+
+    <% end %>
+</div>
