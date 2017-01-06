@@ -4,11 +4,25 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi Denise </h1>
-    <p>
-      Sample mail sent using smtp.
+    <h1>Hi Tim! </h1>
+    <p>Here is the output of Denise's input.</p>
 
-      Your total skill are: <%= @apprentice_evaluation.skill_total %>
-    </p>
+    <div>
+      <%= @apprentice_evaluation.fullname%>
+      <br>
+      <%= @apprentice_evaluation.email%>
+      <br>
+      <%= @apprentice_evaluation.projectrepo %>
+      <br>
+      <%= @apprentice_evaluation.projecturl %>
+      <br>
+      <% @apprentice_evaluation.skills.each do |skill| %>
+      <br>
+        <%= skill.oop_practices%>
+        <br>
+      <% end %>
+    </div>
+
+  <p> Total skill score is: <%= @apprentice_evaluation.skill_total %></p>
   </body>
 </html>

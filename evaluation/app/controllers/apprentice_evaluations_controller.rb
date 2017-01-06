@@ -17,8 +17,7 @@ class ApprenticeEvaluationsController < ApplicationController
                         )
 
     skill = apprentice_evaluation.skills.build
-    skill.attributes = apprentice_evaluation_params[:skills_attributes]
-
+    skill.attributes = aep[:skills_attributes]
     if skill.save! && apprentice_evaluation.save!
       SendEmailJob.perform_later(apprentice_evaluation)
       respond_to do |format|
