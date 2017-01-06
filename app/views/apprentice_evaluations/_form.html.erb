@@ -1,148 +1,162 @@
 <div class="container">
 <!-- apprentice info start -->
   <%= form_for @apprentice_evaluation do |f| %>
-    <div class="">
-      <%= f.text_field :fullname, placeholder: "Full Name", :class => 'apprentice-info', required: true %>
+    <div>
+      <%= f.text_field :fullname, placeholder: "Full Name", :class => 'apprentice-info form-control', required: true %>
     </div>
-    <div class="">
-      <%= f.text_field :email, placeholder: "Email", :class => 'apprentice-info', required: true %>
+    <div>
+      <%= f.text_field :email, placeholder: "Email", :class => 'apprentice-info form-control', required: true %>
     </div>
-    <div class="">
-      <span><%= f.text_field :projectrepo, placeholder: "Project Repo", :class => 'apprentice-info', required: true %>
-      </span>
+    <div>
+      <%= f.text_field :projectrepo, placeholder: "Project Repo", :class => 'apprentice-info form-control', required: true %>
     </div>
-    <div class="">
-      <span><%= f.text_field :projecturl, placeholder: "Project Url", :class => 'apprentice-info', required: true %>
-      </span>
+    <div>
+      <%= f.text_field :projecturl, placeholder: "Project Url", :class => 'apprentice-info form-control', required: true %>
     </div>
 <!-- apprentice info end -->
 
 <!-- skills list -->
   <div class="skills-container">
     <%= f.fields_for :skills_attributes do |s| %>
-        <div class="skills col-xs-12 p-0">
-          <div class="col-xs-12 col-sm-8 col-md-9 pl-0">
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
             <%= s.label "Using Best Practices For OOP:", class: "skills-name" %>
           </div>
-          <div class="col-sm-4 col-md-3 p-0">
-            <%= s.number_field :oop_practices, class: "h-100 skills-value form-control", min: 0, max: 10, required: true %>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :oop_practices, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
           </div>
         </div>
 
-        <div class=" skills">
-          <span>
-            <%= s.label "Modular Development:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :modular_dev, :class => "col-sm-2 h-100 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Modular Development:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :modular_dev, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Fullstack Workflow Understanding:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :fullstack_understanding, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Fullstack Workflow Understanding:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :fullstack_understanding, class: "skills-value form-control p-0", min: 0, max: 4, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Testing:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :testing, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Testing:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :testing, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Database Knowledge:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :db_knowledge, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Database Knowledge:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :db_knowledge, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Debugging:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :debugging, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Debugging:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :debugging, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Problem Solving Skills:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :problem_solving, :class => "col-sm-2 h-100 skills-value form-control"%>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Problem Solving Skills:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :problem_solving, class: "skills-value form-control p-0", min: 0, max: 4, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Javascript:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :javascript, :class => "col-sm-2 h-100 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Javascript:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :javascript, class: "skills-value form-control p-0", min: 0, max: 4, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "HTML:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :html, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "HTML:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :html, class: "skills-value form-control p-0", min: 0, max: 4, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "CSS:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :css, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "CSS:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :css, class: "skills-value form-control p-0", min: 0, max: 4, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Working on a Team:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :teamwork, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Working on a Team:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :teamwork, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Self Motivation:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :self_motivation, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Self Motivation:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :self_motivation, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Communication Skills:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span><%= s.number_field :communication_skills, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Communication Skills:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :communication_skills, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "My Energy Level:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span> <%= s.number_field :energy, :class => "col-sm-2 h-100 skills-value form-control" %> </span>
+        <div class="col-xs-12 p-0">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "My Energy Levels:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :energy, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
 
-        <div class=" skills">
-          <span> <%= s.label "Intelligence / Aptitude:", :class => "col-sm-10 h-100 skills-name" %>
-          </span>
-          <span>
-            <%= s.number_field :aptitude, :class => "col-sm-2 h-100 skills-value form-control" %>
-          </span>
+        <div class="col-xs-12 p-0 mb-2">
+          <div class="col-xs-10 col-md-10 pl-0">
+            <%= s.label "Intelligence / Aptitude:", class: "skills-name" %>
+          </div>
+          <div class="col-xs-2 col-md-2 p-0">
+            <%= s.number_field :aptitude, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+          </div>
         </div>
     <% end %>
   </div>
 <!-- end skills list -->
 
-  <div class=""><%= f.submit 'Submit', :class => 'submit-info' %></div>
+  <div class="send"><%= f.submit 'Submit', class: 'submit-info form-control' %></div>
 
   <% end %>
 </div>

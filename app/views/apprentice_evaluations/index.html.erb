@@ -1,24 +1,2 @@
 
 <%= render partial: 'form' %>
-
-
-<div>
-  <%- @apprentice_evaluations.each do |ae|%>
-    <%= ae.fullname%>
-    <br>
-    <%= ae.email%>
-    <br>
-    <%= ae.projectrepo %>
-    <br>
-    <%= ae.projecturl %>
-    <br>
-    <% ae.skills.each do |skill| %>
-    <br>
-      <%= skill.oop_practices%>
-      <br>
-      Total Point: <%= ae.skill_total %>
-    <% end %>
-    <br>
-    <br>
-  <%end%>
-</div>

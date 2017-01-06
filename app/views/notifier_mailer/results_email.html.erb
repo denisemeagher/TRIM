@@ -2,27 +2,44 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
   </head>
+
   <body>
-    <h1>Hi Tim! </h1>
-    <p>Here is the output of Denise's input.</p>
 
-    <div>
-      <%= @apprentice_evaluation.fullname%>
+    <div style="background-color:#eceff1; color:#456990; height:800px; width:75%; margin:auto; font-family:sans-serif;">
       <br>
-      <%= @apprentice_evaluation.email%>
-      <br>
-      <%= @apprentice_evaluation.projectrepo %>
-      <br>
-      <%= @apprentice_evaluation.projecturl %>
-      <br>
-      <% @apprentice_evaluation.skills.each do |skill| %>
-      <br>
-        <%= skill.oop_practices%>
-        <br>
-      <% end %>
+      <h1 style="text-align:center; font-size: 35px;;">Hi Tim! </h1>
+      <h2 style ="text-align:center; font-size: 25px;">Here is the output from the questionnaire.</h2>
+        <ul style="list-style-type:none; font-size: 20px;">
+          <li><b>NAME:</b> <%= @apprentice_evaluation.fullname %></li>
+          <li><b>EMAIL:</b> <%= @apprentice_evaluation.email %></li>
+          <li><b>PROJECT REPO:</b> <%= @apprentice_evaluation.projectrepo %></li>
+          <li><b>PROJET URL:</b> <%= @apprentice_evaluation.projecturl %></li>
+        </ul>
+
+        <ul style="list-style-type:none; font-size:20px;">
+          <% @apprentice_evaluation.skills.each do |skill| %>
+          <li>Using best practices for OOP: <b><%= skill.oop_practices%></b></b></li>
+          <li>Modular development: <b><%= skill.modular_dev%></b></li>
+          <li>Full-stack workflow understanding: <b><%= skill.fullstack_understanding%></b></li>
+          <li>Testing: <b><%= skill.testing%></b></li>
+          <li>Database knowledge: <b><%= skill.db_knowledge%></b></li>
+          <li>Debugging: <b><%= skill.debugging%></b></li>
+          <li>Problem solving: <b><%= skill.problem_solving%></b></li>
+          <li>Javascript: <b><%= skill.javascript%></b></li>
+          <li>HTML: <b><%= skill.html%></b></li>
+          <li>CSS: <b><%= skill.css%></b></li>
+          <li>Working on a team: <b><%= skill.teamwork%></b></li>
+          <li>Self motivation: <b><%= skill.self_motivation%></b></li>
+          <li>Communication skills: <b><%= skill.communication_skills%></b></li>
+          <li>My energy levels:<b> <%= skill.energy%></b></li>
+          <li>Intelligence/Aptitude: <b><%= skill.aptitude%></b></li>
+          <% end %>
+        </ul>
+        <hr>
+      <p style="font-size:22px; margin-left: 50px;"> Total score is: <b><%= @apprentice_evaluation.skill_total %></b><br>
+      ** There is ALWAYS room for improvement! =) ** </p>
     </div>
-
-  <p> Total skill score is: <%= @apprentice_evaluation.skill_total %></p>
   </body>
 </html>

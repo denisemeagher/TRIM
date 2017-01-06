@@ -4,8 +4,6 @@ class ApprenticeEvaluation < ApplicationRecord
   accepts_nested_attributes_for :skills, allow_destroy: true
 
   validates :email, presence: true
-  
-
 
   def skill_total
     total_skills = self.skills.map do |skill|
