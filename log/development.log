@@ -21478,3 +21478,489 @@ Processing by ApprenticeEvaluationsController#index as HTML
 Completed 200 OK in 3945ms (Views: 3863.5ms | ActiveRecord: 3.9ms)
 
 
+Started GET "/" for ::1 at 2017-01-06 18:16:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (179.1ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (194.5ms)
+Completed 200 OK in 3534ms (Views: 3451.8ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/apprentice_evaluations" for ::1 at 2017-01-06 18:16:48 -0500
+Processing by ApprenticeEvaluationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IVTejZTIgY2O8BiijxgP6DTxVKcy2uZZ/GjsrRfvt3KQTkWZ0WXElJN5c/k6VsZD99QqyxDmrZmb95SaywmetQ==", "apprentice_evaluation"=>{"fullname"=>"denise meagher", "email"=>"meagher.denise@gmail.com", "projectrepo"=>"github repo", "projecturl"=>"project url", "skills_attributes"=>{"oop_practices"=>"2", "modular_dev"=>"2", "fullstack_understanding"=>"2", "testing"=>"2", "db_knowledge"=>"2", "debugging"=>"2", "problem_solving"=>"2", "javascript"=>"2", "html"=>"2", "css"=>"2", "teamwork"=>"2", "self_motivation"=>"2", "communication_skills"=>"2", "energy"=>"2", "aptitude"=>"2"}}, "commit"=>"Submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (35.3ms)[0m  [1m[32mINSERT INTO "apprentice_evaluations" ("fullname", "email", "projectrepo", "projecturl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["fullname", "denise meagher"], ["email", "meagher.denise@gmail.com"], ["projectrepo", "github repo"], ["projecturl", "project url"], ["created_at", 2017-01-06 23:16:48 UTC], ["updated_at", 2017-01-06 23:16:48 UTC]]
+  [1m[35m (23.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mApprenticeEvaluation Load (0.3ms)[0m  [1m[34mSELECT  "apprentice_evaluations".* FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "skills" ("oop_practices", "modular_dev", "fullstack_understanding", "testing", "db_knowledge", "debugging", "problem_solving", "javascript", "html", "css", "teamwork", "self_motivation", "communication_skills", "energy", "aptitude", "apprentice_evaluation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING "id"[0m  [["oop_practices", 2], ["modular_dev", 2], ["fullstack_understanding", 2], ["testing", 2], ["db_knowledge", 2], ["debugging", 2], ["problem_solving", 2], ["javascript", 2], ["html", 2], ["css", 2], ["teamwork", 2], ["self_motivation", 2], ["communication_skills", 2], ["energy", 2], ["aptitude", 2], ["apprentice_evaluation_id", 21], ["created_at", 2017-01-06 23:16:48 UTC], ["updated_at", 2017-01-06 23:16:48 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued SendEmailJob (Job ID: 13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d) to Async(default) with arguments: #<GlobalID:0x007ffd931dd0d8 @uri=#<URI::GID gid://evaluation/ApprenticeEvaluation/21>>
+Redirected to http://localhost:3000/
+Completed 302 Found in 494ms (ActiveRecord: 67.4ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 18:16:48 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  [1m[36mApprenticeEvaluation Load (0.9ms)[0m  [1m[34mSELECT  "apprentice_evaluations".* FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+[ActiveJob] [SendEmailJob] [13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d] Performing SendEmailJob from Async(default) with arguments: #<GlobalID:0x007ffd932057e0 @uri=#<URI::GID gid://evaluation/ApprenticeEvaluation/21>>
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (53.2ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (55.4ms)
+Completed 200 OK in 227ms (Views: 205.3ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [SendEmailJob] [13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d]   Rendering notifier_mailer/results_email.html.erb within layouts/mailer
+[ActiveJob] [SendEmailJob] [13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d]   [1m[36mSkill Load (0.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = $1[0m  [["apprentice_evaluation_id", 21]]
+[ActiveJob] [SendEmailJob] [13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d]   Rendered notifier_mailer/results_email.html.erb within layouts/mailer (9.3ms)
+[ActiveJob] [SendEmailJob] [13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d] NotifierMailer#results_email: processed outbound mail in 664.7ms
+[ActiveJob] [SendEmailJob] [13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d] Sent mail to noreply@example.com (653.4ms)
+[ActiveJob] [SendEmailJob] [13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d] Date: Fri, 06 Jan 2017 18:16:49 -0500
+From: no-reply@example.com
+To: noreply@example.com
+Message-ID: <58702561c73f7_1a383ffec98ee6dc782aa@DeniseM-MacPro.local.mail>
+Subject: Apprentice Evaluation questionnaire results
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SMTPAPI: {"category":"SendGridRocks","to":[ "meagher.denise@gmail.com" ]}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div style="background-color:#eceff1; color:#456990; height:800px; width:75%; margin:auto; font-family:sans-serif;">
+      <br>
+      <h1 style="text-align:center; font-size: 35px;;">Hi Tim! </h1>
+      <h2 style ="text-align:center; font-size: 25px;">Here is the output from the questionnaire.</h2>
+        <ul style="list-style-type:none; font-size: 20px;">
+          <li><b>NAME:</b> denise meagher</li>
+          <li><b>EMAIL:</b> meagher.denise@gmail.com</li>
+          <li><b>PROJECT REPO:</b> github repo</li>
+          <li><b>PROJET URL:</b> project url</li>
+        </ul>
+
+        <ul style="list-style-type:none; font-size:20px;">
+          <li>Using best practices for OOP: <b>2</b></b></li>
+          <li>Modular development: <b>2</b></li>
+          <li>Full-stack workflow understanding: <b>2</b></li>
+          <li>Testing: <b>2</b></li>
+          <li>Database knowledge: <b>2</b></li>
+          <li>Debugging: <b>2</b></li>
+          <li>Problem solving: <b>2</b></li>
+          <li>Javascript: <b>2</b></li>
+          <li>HTML: <b>2</b></li>
+          <li>CSS: <b>2</b></li>
+          <li>Working on a team: <b>2</b></li>
+          <li>Self motivation: <b>2</b></li>
+          <li>Communication skills: <b>2</b></li>
+          <li>My energy levels:<b> 2</b></li>
+          <li>Intelligence/Aptitude: <b>2</b></li>
+        </ul>
+        <hr>
+      <p style="font-size:22px; margin-left: 50px;"> Total score is: <b>[30]</b><br>
+      ** There is ALWAYS room for improvement! =) ** </p>
+    </div>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [SendEmailJob] [13ff2a98-b42a-4ee9-8e5d-e38af03fbc4d] Performed SendEmailJob from Async(default) in 1612.76ms
+Started GET "/" for ::1 at 2017-01-06 20:04:14 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (333.5ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (372.4ms)
+Completed 200 OK in 6510ms (Views: 6386.0ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:24:29 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (9.8ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (14.8ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/DeniseMeagher/code/TRIM/app/views/apprentice_evaluations/_form.html.erb:8: syntax error, unexpected ',', expecting =>
+...ontrol', data-validation="url", required: true );@output_buf...
+...                               ^):
+  
+app/views/apprentice_evaluations/_form.html.erb:8: syntax error, unexpected ',', expecting =>
+app/views/apprentice_evaluations/index.html.erb:2:in `_app_views_apprentice_evaluations_index_html_erb___3536776819406962754_70156904524920'
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (29.6ms)
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (132.4ms)
+Started GET "/" for ::1 at 2017-01-06 20:25:08 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  [1m[36mApprenticeEvaluation Load (1.9ms)[0m  [1m[34mSELECT "apprentice_evaluations".* FROM "apprentice_evaluations"[0m
+  [1m[36mSkill Load (0.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = 21[0m
+  Rendered apprentice_evaluations/_form.html.erb (785.1ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (793.0ms)
+Completed 500 Internal Server Error in 845ms (ActiveRecord: 16.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `validation' for #<#<Class:0x007f9d57121348>:0x007f9d5a8e3880>):
+     5:       <%= f.text_field :fullname, placeholder: "Full Name", :class => 'apprentice-info form-control', required: true %>
+     6:     </div>
+     7:     <div>
+     8:       <%= f.text_field :email, placeholder: "Email", :class => 'apprentice-info form-control', :data-validation => "url", required: true %>
+     9:     </div>
+    10:     <div>
+    11:       <%= f.text_field :projectrepo, placeholder: "Project Repo", :class => 'apprentice-info form-control', required: true %>
+  
+app/views/apprentice_evaluations/_form.html.erb:8:in `block in _app_views_apprentice_evaluations__form_html_erb___1240633639027357053_70156902990840'
+app/views/apprentice_evaluations/_form.html.erb:3:in `_app_views_apprentice_evaluations__form_html_erb___1240633639027357053_70156902990840'
+app/views/apprentice_evaluations/index.html.erb:2:in `_app_views_apprentice_evaluations_index_html_erb___3536776819406962754_70156902959240'
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.7ms)
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (93.3ms)
+Started GET "/" for ::1 at 2017-01-06 20:25:24 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (19.1ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 200ms (Views: 187.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:28:40 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (7.6ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (19.5ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/DeniseMeagher/code/TRIM/app/views/apprentice_evaluations/_form.html.erb:8: syntax error, unexpected ')', expecting =>
+...control', required="required" );@output_buffer.safe_append='
+...                               ^
+/Users/DeniseMeagher/code/TRIM/app/views/apprentice_evaluations/_form.html.erb:161: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/Users/DeniseMeagher/code/TRIM/app/views/apprentice_evaluations/_form.html.erb:164: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/DeniseMeagher/code/TRIM/app/views/apprentice_evaluations/_form.html.erb:166: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/apprentice_evaluations/_form.html.erb:8: syntax error, unexpected ')', expecting =>
+app/views/apprentice_evaluations/_form.html.erb:161: syntax error, unexpected keyword_end, expecting ')'
+app/views/apprentice_evaluations/_form.html.erb:164: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/apprentice_evaluations/_form.html.erb:166: syntax error, unexpected keyword_end, expecting ')'
+app/views/apprentice_evaluations/index.html.erb:2:in `_app_views_apprentice_evaluations_index_html_erb___3536776819406962754_70156904345740'
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.3ms)
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (100.0ms)
+Started GET "/" for ::1 at 2017-01-06 20:28:56 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (23.1ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 2557ms (Views: 2554.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:29:52 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (18.4ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 142ms (Views: 131.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/apprentice_evaluations" for ::1 at 2017-01-06 20:30:09 -0500
+Processing by ApprenticeEvaluationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JfuesV4LI/KqcLgVjVW8lHGGgqsgdsM2PWQ4+3sD/R6U4QWlG6Zm67f50044G3U/sqP8xwJKiPZa+0DMp+XU2Q==", "apprentice_evaluation"=>{"fullname"=>"asdf", "email"=>"asf", "projectrepo"=>"asdfg", "projecturl"=>"lkj", "skills_attributes"=>{"oop_practices"=>"2", "modular_dev"=>"2", "fullstack_understanding"=>"2", "testing"=>"2", "db_knowledge"=>"2", "debugging"=>"2", "problem_solving"=>"2", "javascript"=>"2", "html"=>"2", "css"=>"2", "teamwork"=>"2", "self_motivation"=>"2", "communication_skills"=>"2", "energy"=>"2", "aptitude"=>"2"}}, "commit"=>"Submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (33.5ms)[0m  [1m[32mINSERT INTO "apprentice_evaluations" ("fullname", "email", "projectrepo", "projecturl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["fullname", "asdf"], ["email", "asf"], ["projectrepo", "asdfg"], ["projecturl", "lkj"], ["created_at", 2017-01-07 01:30:09 UTC], ["updated_at", 2017-01-07 01:30:09 UTC]]
+  [1m[35m (63.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mApprenticeEvaluation Load (0.6ms)[0m  [1m[34mSELECT  "apprentice_evaluations".* FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "skills" ("oop_practices", "modular_dev", "fullstack_understanding", "testing", "db_knowledge", "debugging", "problem_solving", "javascript", "html", "css", "teamwork", "self_motivation", "communication_skills", "energy", "aptitude", "apprentice_evaluation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING "id"[0m  [["oop_practices", 2], ["modular_dev", 2], ["fullstack_understanding", 2], ["testing", 2], ["db_knowledge", 2], ["debugging", 2], ["problem_solving", 2], ["javascript", 2], ["html", 2], ["css", 2], ["teamwork", 2], ["self_motivation", 2], ["communication_skills", 2], ["energy", 2], ["aptitude", 2], ["apprentice_evaluation_id", 22], ["created_at", 2017-01-07 01:30:09 UTC], ["updated_at", 2017-01-07 01:30:09 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued SendEmailJob (Job ID: fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6) to Async(default) with arguments: #<GlobalID:0x007f9d570d0c18 @uri=#<URI::GID gid://evaluation/ApprenticeEvaluation/22>>
+Redirected to http://localhost:3000/
+Completed 302 Found in 478ms (ActiveRecord: 100.8ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:30:09 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  [1m[36mApprenticeEvaluation Load (0.4ms)[0m  [1m[34mSELECT  "apprentice_evaluations".* FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+[ActiveJob] [SendEmailJob] [fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6] Performing SendEmailJob from Async(default) with arguments: #<GlobalID:0x007f9d53f6df40 @uri=#<URI::GID gid://evaluation/ApprenticeEvaluation/22>>
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (32.9ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 829ms (Views: 801.3ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [SendEmailJob] [fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6]   Rendering notifier_mailer/results_email.html.erb within layouts/mailer
+[ActiveJob] [SendEmailJob] [fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6]   [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = $1[0m  [["apprentice_evaluation_id", 22]]
+[ActiveJob] [SendEmailJob] [fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6]   Rendered notifier_mailer/results_email.html.erb within layouts/mailer (8.5ms)
+[ActiveJob] [SendEmailJob] [fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6] NotifierMailer#results_email: processed outbound mail in 1282.2ms
+[ActiveJob] [SendEmailJob] [fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6] Sent mail to noreply@example.com (1225.7ms)
+[ActiveJob] [SendEmailJob] [fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6] Date: Fri, 06 Jan 2017 20:30:13 -0500
+From: no-reply@example.com
+To: noreply@example.com
+Message-ID: <587044a564273_1af83fceab865ba040714@DeniseM-MacPro.local.mail>
+Subject: Apprentice Evaluation questionnaire results
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SMTPAPI: {"category":"SendGridRocks","to":[ "meagher.denise@gmail.com" ]}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div style="background-color:#eceff1; color:#456990; height:800px; width:75%; margin:auto; font-family:sans-serif;">
+      <br>
+      <h1 style="text-align:center; font-size: 35px;;">Hi Tim! </h1>
+      <h2 style ="text-align:center; font-size: 25px;">Here is the output from the questionnaire.</h2>
+        <ul style="list-style-type:none; font-size: 20px;">
+          <li><b>NAME:</b> asdf</li>
+          <li><b>EMAIL:</b> asf</li>
+          <li><b>PROJECT REPO:</b> asdfg</li>
+          <li><b>PROJET URL:</b> lkj</li>
+        </ul>
+
+        <ul style="list-style-type:none; font-size:20px;">
+          <li>Using best practices for OOP: <b>2</b></b></li>
+          <li>Modular development: <b>2</b></li>
+          <li>Full-stack workflow understanding: <b>2</b></li>
+          <li>Testing: <b>2</b></li>
+          <li>Database knowledge: <b>2</b></li>
+          <li>Debugging: <b>2</b></li>
+          <li>Problem solving: <b>2</b></li>
+          <li>Javascript: <b>2</b></li>
+          <li>HTML: <b>2</b></li>
+          <li>CSS: <b>2</b></li>
+          <li>Working on a team: <b>2</b></li>
+          <li>Self motivation: <b>2</b></li>
+          <li>Communication skills: <b>2</b></li>
+          <li>My energy levels:<b> 2</b></li>
+          <li>Intelligence/Aptitude: <b>2</b></li>
+        </ul>
+        <hr>
+      <p style="font-size:22px; margin-left: 50px;"> Total score is: <b>[30]</b><br>
+      ** There is ALWAYS room for improvement! =) ** </p>
+    </div>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [SendEmailJob] [fce059ae-2835-4bb0-9c2f-1e7a2a2af1f6] Performed SendEmailJob from Async(default) in 4958.99ms
+Started GET "/" for ::1 at 2017-01-06 20:31:19 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (371.8ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (378.6ms)
+Completed 200 OK in 794ms (Views: 765.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:31:52 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (28.3ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 218ms (Views: 207.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:38:28 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (41.5ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (48.5ms)
+Completed 200 OK in 216ms (Views: 197.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:39:42 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (20.3ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 424ms (Views: 412.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:42:36 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (107.1ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (109.7ms)
+Completed 200 OK in 469ms (Views: 435.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:43:38 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (23.6ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 257ms (Views: 246.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:49:54 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (64.3ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (72.8ms)
+Completed 200 OK in 434ms (Views: 385.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/apprentice_evaluations" for ::1 at 2017-01-06 20:50:49 -0500
+Processing by ApprenticeEvaluationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DxZx3R2YuSNHVVDgz/xTtd/bMblOI8pKZKydTFnPqey+DOrJWDX8OlrcO7t6spoeHP5P1WwfgYoDM+V7hSmAKw==", "apprentice_evaluation"=>{"fullname"=>"denise", "email"=>"denise@email.com", "projectrepo"=>"reo", "projecturl"=>"url", "skills_attributes"=>{"oop_practices"=>".5", "modular_dev"=>".5", "fullstack_understanding"=>".5", "testing"=>".5", "db_knowledge"=>".5", "debugging"=>".5", "problem_solving"=>".5", "javascript"=>"1", "html"=>"1", "css"=>"1", "teamwork"=>"1", "self_motivation"=>"1", "communication_skills"=>"1", "energy"=>"1", "aptitude"=>"1"}}, "commit"=>"Submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.3ms)[0m  [1m[32mINSERT INTO "apprentice_evaluations" ("fullname", "email", "projectrepo", "projecturl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["fullname", "denise"], ["email", "denise@email.com"], ["projectrepo", "reo"], ["projecturl", "url"], ["created_at", 2017-01-07 01:50:49 UTC], ["updated_at", 2017-01-07 01:50:49 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mApprenticeEvaluation Load (0.6ms)[0m  [1m[34mSELECT  "apprentice_evaluations".* FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "skills" ("oop_practices", "modular_dev", "fullstack_understanding", "testing", "db_knowledge", "debugging", "problem_solving", "javascript", "html", "css", "teamwork", "self_motivation", "communication_skills", "energy", "aptitude", "apprentice_evaluation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING "id"[0m  [["oop_practices", 0], ["modular_dev", 0], ["fullstack_understanding", 0], ["testing", 0], ["db_knowledge", 0], ["debugging", 0], ["problem_solving", 0], ["javascript", 1], ["html", 1], ["css", 1], ["teamwork", 1], ["self_motivation", 1], ["communication_skills", 1], ["energy", 1], ["aptitude", 1], ["apprentice_evaluation_id", 23], ["created_at", 2017-01-07 01:50:49 UTC], ["updated_at", 2017-01-07 01:50:49 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued SendEmailJob (Job ID: 22ce6e1c-dbe8-450d-81e5-9c2f15bb6321) to Async(default) with arguments: #<GlobalID:0x007f9d55bfd0e8 @uri=#<URI::GID gid://evaluation/ApprenticeEvaluation/23>>
+Redirected to http://localhost:3000/
+Completed 302 Found in 67ms (ActiveRecord: 26.5ms)
+
+
+  [1m[36mApprenticeEvaluation Load (1.5ms)[0m  [1m[34mSELECT  "apprentice_evaluations".* FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+[ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321] Performing SendEmailJob from Async(default) with arguments: #<GlobalID:0x007f9d5c062d58 @uri=#<URI::GID gid://evaluation/ApprenticeEvaluation/23>>
+Started GET "/" for ::1 at 2017-01-06 20:50:49 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+[ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321]   Rendering notifier_mailer/results_email.html.erb within layouts/mailer
+[ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321]   [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = $1[0m  [["apprentice_evaluation_id", 23]]
+[ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321]   Rendered notifier_mailer/results_email.html.erb within layouts/mailer (6.0ms)
+[ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321] NotifierMailer#results_email: processed outbound mail in 66.2ms
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (33.6ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 224ms (Views: 199.5ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321] Sent mail to noreply@example.com (1201.1ms)
+[ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321] Date: Fri, 06 Jan 2017 20:50:49 -0500
+From: no-reply@example.com
+To: noreply@example.com
+Message-ID: <5870497967383_1af83fceab865ba0408e8@DeniseM-MacPro.local.mail>
+Subject: Apprentice Evaluation questionnaire results
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SMTPAPI: {"category":"SendGridRocks","to":[ "meagher.denise@gmail.com" ]}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div style="background-color:#eceff1; color:#456990; height:800px; width:75%; margin:auto; font-family:sans-serif;">
+      <br>
+      <h1 style="text-align:center; font-size: 35px;;">Hi Tim! </h1>
+      <h2 style ="text-align:center; font-size: 25px;">Here is the output from the questionnaire.</h2>
+        <ul style="list-style-type:none; font-size: 20px;">
+          <li><b>NAME:</b> denise</li>
+          <li><b>EMAIL:</b> denise@email.com</li>
+          <li><b>PROJECT REPO:</b> reo</li>
+          <li><b>PROJET URL:</b> url</li>
+        </ul>
+
+        <ul style="list-style-type:none; font-size:20px;">
+          <li>Using best practices for OOP: <b>0</b></b></li>
+          <li>Modular development: <b>0</b></li>
+          <li>Full-stack workflow understanding: <b>0</b></li>
+          <li>Testing: <b>0</b></li>
+          <li>Database knowledge: <b>0</b></li>
+          <li>Debugging: <b>0</b></li>
+          <li>Problem solving: <b>0</b></li>
+          <li>Javascript: <b>1</b></li>
+          <li>HTML: <b>1</b></li>
+          <li>CSS: <b>1</b></li>
+          <li>Working on a team: <b>1</b></li>
+          <li>Self motivation: <b>1</b></li>
+          <li>Communication skills: <b>1</b></li>
+          <li>My energy levels:<b> 1</b></li>
+          <li>Intelligence/Aptitude: <b>1</b></li>
+        </ul>
+        <hr>
+      <p style="font-size:22px; margin-left: 50px;"> Total score is: <b>[8]</b><br>
+      ** There is ALWAYS room for improvement! =) ** </p>
+    </div>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321] Performed SendEmailJob from Async(default) in 1272.54ms
