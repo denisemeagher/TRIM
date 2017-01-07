@@ -21964,3 +21964,193 @@ X-SMTPAPI: {"category":"SendGridRocks","to":[ "meagher.denise@gmail.com" ]}
 </html>
 
 [ActiveJob] [SendEmailJob] [22ce6e1c-dbe8-450d-81e5-9c2f15bb6321] Performed SendEmailJob from Async(default) in 1272.54ms
+Started GET "/" for ::1 at 2017-01-06 20:55:48 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (50.8ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (56.4ms)
+Completed 200 OK in 475ms (Views: 418.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-06 20:56:44 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  [1m[36mApprenticeEvaluation Load (0.7ms)[0m  [1m[34mSELECT "apprentice_evaluations".* FROM "apprentice_evaluations"[0m
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" IN (21, 22, 23)[0m
+  Rendered apprentice_evaluations/_form.html.erb (213.3ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (219.3ms)
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `s' for #<#<Class:0x007f9d57121348>:0x007f9d5a951fd8>):
+    158: 
+    159: 
+    160: <form action="demo_form.asp" method="post">
+    161:   <%= s.number_field :aptitude, class: "skills-value form-control p-0", min: 0, max: 3, required: true %>
+    162: 
+    163: </form>
+    164: 
+  
+app/views/apprentice_evaluations/_form.html.erb:161:in `block in _app_views_apprentice_evaluations__form_html_erb___1240633639027357053_70156887415140'
+app/views/apprentice_evaluations/_form.html.erb:3:in `_app_views_apprentice_evaluations__form_html_erb___1240633639027357053_70156887415140'
+app/views/apprentice_evaluations/index.html.erb:2:in `_app_views_apprentice_evaluations_index_html_erb___3536776819406962754_70156903161040'
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.9ms)
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendering /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/DeniseMeagher/.rvm/gems/ruby-2.2.6/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (103.5ms)
+Started GET "/" for ::1 at 2017-01-06 20:57:02 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (38.9ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 744ms (Views: 711.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "apprentice_evaluations"[0m
+  [1m[36mApprenticeEvaluation Load (3.9ms)[0m  [1m[34mSELECT "apprentice_evaluations".* FROM "apprentice_evaluations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = $1[0m  [["apprentice_evaluation_id", 21]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = $1[0m  [["id", 21]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1[0m  [["id", 21]]
+  [1m[35m (27.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = $1[0m  [["apprentice_evaluation_id", 22]]
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = $1[0m  [["id", 22]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1[0m  [["id", 22]]
+  [1m[35m (15.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = $1[0m  [["apprentice_evaluation_id", 23]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = $1[0m  [["id", 23]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1[0m  [["id", 23]]
+  [1m[35m (11.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "apprentice_evaluations"[0m
+Started GET "/" for ::1 at 2017-01-06 21:01:48 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (65.3ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (73.1ms)
+Completed 200 OK in 629ms (Views: 590.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/apprentice_evaluations" for ::1 at 2017-01-06 21:02:59 -0500
+Processing by ApprenticeEvaluationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wXj1eiILvqAWXS+X5E9u/yaq6FUfEiv7kawuS/0oqDRwYm5uZ6b7uQvURMxRAadU5Y+WOT0uYDv2M1Z8Ic6B8w==", "apprentice_evaluation"=>{"fullname"=>"Denise meagher final test", "email"=>"meagher.denise@gmail.com", "projectrepo"=>"https://github.com/denisemeagher/TRIM", "projecturl"=>"https://nameless-forest-98748.herokuapp.com/", "skills_attributes"=>{"oop_practices"=>"2", "modular_dev"=>"2", "fullstack_understanding"=>"2", "testing"=>"2", "db_knowledge"=>"2", "debugging"=>"2", "problem_solving"=>"2", "javascript"=>"2", "html"=>"2", "css"=>"2", "teamwork"=>"2", "self_motivation"=>"2", "communication_skills"=>"2", "energy"=>"2", "aptitude"=>"2"}}, "commit"=>"Submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "apprentice_evaluations" ("fullname", "email", "projectrepo", "projecturl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["fullname", "Denise meagher final test"], ["email", "meagher.denise@gmail.com"], ["projectrepo", "https://github.com/denisemeagher/TRIM"], ["projecturl", "https://nameless-forest-98748.herokuapp.com/"], ["created_at", 2017-01-07 02:02:59 UTC], ["updated_at", 2017-01-07 02:02:59 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mApprenticeEvaluation Load (1.0ms)[0m  [1m[34mSELECT  "apprentice_evaluations".* FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "skills" ("oop_practices", "modular_dev", "fullstack_understanding", "testing", "db_knowledge", "debugging", "problem_solving", "javascript", "html", "css", "teamwork", "self_motivation", "communication_skills", "energy", "aptitude", "apprentice_evaluation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING "id"[0m  [["oop_practices", 2], ["modular_dev", 2], ["fullstack_understanding", 2], ["testing", 2], ["db_knowledge", 2], ["debugging", 2], ["problem_solving", 2], ["javascript", 2], ["html", 2], ["css", 2], ["teamwork", 2], ["self_motivation", 2], ["communication_skills", 2], ["energy", 2], ["aptitude", 2], ["apprentice_evaluation_id", 24], ["created_at", 2017-01-07 02:02:59 UTC], ["updated_at", 2017-01-07 02:02:59 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued SendEmailJob (Job ID: b114fafa-ee28-4b87-be7d-8a782e9b8268) to Async(default) with arguments: #<GlobalID:0x007f9d576bb510 @uri=#<URI::GID gid://evaluation/ApprenticeEvaluation/24>>
+Redirected to http://localhost:3000/
+Completed 302 Found in 120ms (ActiveRecord: 5.3ms)
+
+
+  [1m[36mApprenticeEvaluation Load (4.6ms)[0m  [1m[34mSELECT  "apprentice_evaluations".* FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[ActiveJob] [SendEmailJob] [b114fafa-ee28-4b87-be7d-8a782e9b8268] Performing SendEmailJob from Async(default) with arguments: #<GlobalID:0x007f9d540ebbd8 @uri=#<URI::GID gid://evaluation/ApprenticeEvaluation/24>>
+Started GET "/" for ::1 at 2017-01-06 21:02:59 -0500
+Processing by ApprenticeEvaluationsController#index as HTML
+[ActiveJob] [SendEmailJob] [b114fafa-ee28-4b87-be7d-8a782e9b8268]   Rendering notifier_mailer/results_email.html.erb within layouts/mailer
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+[ActiveJob] [SendEmailJob] [b114fafa-ee28-4b87-be7d-8a782e9b8268]   [1m[36mSkill Load (108.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = $1[0m  [["apprentice_evaluation_id", 24]]
+[ActiveJob] [SendEmailJob] [b114fafa-ee28-4b87-be7d-8a782e9b8268]   Rendered notifier_mailer/results_email.html.erb within layouts/mailer (122.2ms)
+[ActiveJob] [SendEmailJob] [b114fafa-ee28-4b87-be7d-8a782e9b8268] NotifierMailer#results_email: processed outbound mail in 220.4ms
+  Rendered apprentice_evaluations/_form.html.erb (122.1ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (136.4ms)
+Completed 200 OK in 562ms (Views: 542.7ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [SendEmailJob] [b114fafa-ee28-4b87-be7d-8a782e9b8268] Sent mail to noreply@example.com (1198.0ms)
+[ActiveJob] [SendEmailJob] [b114fafa-ee28-4b87-be7d-8a782e9b8268] Date: Fri, 06 Jan 2017 21:03:00 -0500
+From: no-reply@example.com
+To: noreply@example.com
+Message-ID: <58704c541a8ac_1af83fceab865ba040939@DeniseM-MacPro.local.mail>
+Subject: Apprentice Evaluation questionnaire results
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SMTPAPI: {"category":"SendGridRocks","to":[ "meagher.denise@gmail.com" ]}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div style="background-color:#eceff1; color:#456990; height:800px; width:75%; margin:auto; font-family:sans-serif;">
+      <br>
+      <h1 style="text-align:center; font-size: 35px;;">Hi Tim! </h1>
+      <h2 style ="text-align:center; font-size: 25px;">Here is the output from the questionnaire.</h2>
+        <ul style="list-style-type:none; font-size: 20px;">
+          <li><b>NAME:</b> Denise meagher final test</li>
+          <li><b>EMAIL:</b> meagher.denise@gmail.com</li>
+          <li><b>PROJECT REPO:</b> https://github.com/denisemeagher/TRIM</li>
+          <li><b>PROJET URL:</b> https://nameless-forest-98748.herokuapp.com/</li>
+        </ul>
+
+        <ul style="list-style-type:none; font-size:20px;">
+          <li>Using best practices for OOP: <b>2</b></b></li>
+          <li>Modular development: <b>2</b></li>
+          <li>Full-stack workflow understanding: <b>2</b></li>
+          <li>Testing: <b>2</b></li>
+          <li>Database knowledge: <b>2</b></li>
+          <li>Debugging: <b>2</b></li>
+          <li>Problem solving: <b>2</b></li>
+          <li>Javascript: <b>2</b></li>
+          <li>HTML: <b>2</b></li>
+          <li>CSS: <b>2</b></li>
+          <li>Working on a team: <b>2</b></li>
+          <li>Self motivation: <b>2</b></li>
+          <li>Communication skills: <b>2</b></li>
+          <li>My energy levels:<b> 2</b></li>
+          <li>Intelligence/Aptitude: <b>2</b></li>
+        </ul>
+        <hr>
+      <p style="font-size:22px; margin-left: 50px;"> Total score is: <b>[30]</b><br>
+      ** There is ALWAYS room for improvement! =) ** </p>
+    </div>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [SendEmailJob] [b114fafa-ee28-4b87-be7d-8a782e9b8268] Performed SendEmailJob from Async(default) in 1566.87ms
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "apprentice_evaluations"[0m
+  [1m[36mApprenticeEvaluation Load (6.3ms)[0m  [1m[34mSELECT "apprentice_evaluations".* FROM "apprentice_evaluations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Load (0.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."apprentice_evaluation_id" = $1[0m  [["apprentice_evaluation_id", 24]]
+  [1m[35mSQL (18.1ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = $1[0m  [["id", 24]]
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "apprentice_evaluations" WHERE "apprentice_evaluations"."id" = $1[0m  [["id", 24]]
+  [1m[35m (15.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2017-01-06 21:32:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApprenticeEvaluationsController#index as HTML
+  Rendering apprentice_evaluations/index.html.erb within layouts/application
+  Rendered apprentice_evaluations/_form.html.erb (419.8ms)
+  Rendered apprentice_evaluations/index.html.erb within layouts/application (457.0ms)
+Completed 200 OK in 4283ms (Views: 3863.6ms | ActiveRecord: 4.7ms)
+
+
